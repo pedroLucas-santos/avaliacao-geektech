@@ -17,7 +17,7 @@ programa
 		
 		limpa()
 		escreva("-----GEEKS TECH-----\n\n")
-		escreva("1) Cadastrar novo equipamento\n2) Manutenção conclúida\n3) Fila de atendimento\n4) Consultar próximo atendimento\n5) Buscar equipamento\n6) Status da fila\n7) Equipamentos consertados\n8) Buscar equipamentos consertados\n9) Sair do sistema\n\n")
+		escreva("1) Cadastrar novo equipamento\n2) Finalizar manutenção\n3) Fila de atendimento\n4) Consultar próximo atendimento\n5) Buscar equipamento\n6) Status da fila\n7) Equipamentos consertados\n8) Buscar equipamentos consertados\n9) Sair do sistema\n\n")
 		leia(opcao)
 		limpa()
 
@@ -109,6 +109,7 @@ programa
 
 	funcao manutencao(){
 		real valor
+		caracter opcao
 
 		escreva("-----MANUTENÇÃO-----\n\n")
 
@@ -117,34 +118,55 @@ programa
 			escreva("Problema: ", problema[0], "\n\n")
 			escreva("Valor: R$")
 			leia(valor)
-	
-			para(inteiro i = 0; i < total; i++){
-				se(equipamentoCon[i] == ""){
-					equipamentoCon[i] = equipamento[0]
-					valorManutencao[i] = valor
+
+			escreva("\nDeseja finalizar a manutenção ?")
+			escreva("\n1) Sim\n2) Não\n\n")
+			leia(opcao)
+
+			escolha(opcao){
+				caso '1':{
+					para(inteiro i = 0; i < total; i++){
+						se(equipamentoCon[i] == ""){
+							equipamentoCon[i] = equipamento[0]
+							valorManutencao[i] = valor
+							pare
+						}
+					}
+			
+					para(inteiro i = 0; i < total-1; i++){
+						dataEntrada[i] = dataEntrada[i+1]
+						dataEntrada[i+1] = ""
+			
+						nome[i] = nome[i+1]
+						nome[i+1] = ""
+			
+						equipamento[i] = equipamento[i+1]
+						equipamento[i+1] = ""
+			
+						problema[i] = problema[i+1]
+						problema[i+1] = ""
+					}
+
+					menu()
+					pare
+				}
+
+				caso '2':{
+					menu()
+					pare
+				}
+
+				caso contrario:{
+					manutencao()
 					pare
 				}
 			}
-	
-			para(inteiro i = 0; i < total-1; i++){
-				dataEntrada[i] = dataEntrada[i+1]
-				dataEntrada[i+1] = ""
-	
-				nome[i] = nome[i+1]
-				nome[i+1] = ""
-	
-				equipamento[i] = equipamento[i+1]
-				equipamento[i+1] = ""
-	
-				problema[i] = problema[i+1]
-				problema[i+1] = ""
-			}
 		}senao{
 			escreva("Não existe equipamentos para concluir a manutenção!\n")
+			
+			retorna()
+			menu()
 		}
-
-		retorna()
-		menu()
 	}
 
 	funcao filaAtendimento(){
@@ -238,7 +260,7 @@ programa
 
 		para(inteiro i = 0; i < total; i++){
 			se(equipamentoCon[i] != ""){
-				escreva(equipamentoCon[i], " Valor: ", valorManutencao[i], "\n")
+				escreva(equipamentoCon[i], " | Valor: ", valorManutencao[i], "\n")
 				totalManutencao += valorManutencao[i]
 			}
 		}
@@ -303,7 +325,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5776; 
+ * @POSICAO-CURSOR = 5091; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {dataEntrada, 7, 8, 11}-{equipamento, 7, 41, 11};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
