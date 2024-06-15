@@ -9,14 +9,6 @@ programa
 	
 	funcao inicio()
 	{
-		//debug
-			para(inteiro i = 0; i < 6; i++){
-				dataEntrada[i] = "1" + i + "/06/2024"
-				nome[i] = "pedro [" + i + "]"
-				equipamento[i] = "COMPUTADOR [" + i + "]"
-				problema[i] = "problema na placa mãe [" + i + "]"
-			}
-		//debug
 		menu()
 	}
 
@@ -111,7 +103,6 @@ programa
 			}
 		}
 		
-		
 		retorna()
 		menu()
 	}
@@ -154,7 +145,6 @@ programa
 
 		retorna()
 		menu()
-		
 	}
 
 	funcao filaAtendimento(){
@@ -187,8 +177,7 @@ programa
 		}
 
 		retorna()
-		menu()
-		
+		menu()	
 	}
 
 	funcao buscaEquipamento(){
@@ -258,7 +247,6 @@ programa
 
 		retorna()
 		menu()
-		
 	}
 
 	funcao buscaEquipamentosConsertados(){
@@ -283,7 +271,6 @@ programa
 
 		retorna()
 		menu()
-		
 	}
 
 	funcao sair(){
@@ -303,7 +290,6 @@ programa
 		}
 
 		escreva("Sistema finalizado.")
-		
 	}
 
 	funcao retorna(){
@@ -317,7 +303,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4018; 
+ * @POSICAO-CURSOR = 5776; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {dataEntrada, 7, 8, 11}-{equipamento, 7, 41, 11};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
