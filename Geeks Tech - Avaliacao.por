@@ -10,7 +10,7 @@ programa
 	funcao inicio()
 	{
 		//debug
-			para(inteiro i = 0; i < total; i++){
+			para(inteiro i = 0; i < 6; i++){
 				dataEntrada[i] = "1" + i + "/06/2024"
 				nome[i] = "pedro [" + i + "]"
 				equipamento[i] = "COMPUTADOR [" + i + "]"
@@ -21,55 +21,56 @@ programa
 	}
 
 	funcao menu(){
-		inteiro opcao	
+		caracter opcao	
 		
 		limpa()
+		escreva("-----GEEKS TECH-----\n\n")
 		escreva("1) Cadastrar novo equipamento\n2) Manutenção conclúida\n3) Fila de atendimento\n4) Consultar próximo atendimento\n5) Buscar equipamento\n6) Status da fila\n7) Equipamentos consertados\n8) Buscar equipamentos consertados\n9) Sair do sistema\n\n")
 		leia(opcao)
 		limpa()
 
 		escolha(opcao){
-			caso 1:{
+			caso '1':{
 				cadastroEquipamento()
 				pare
 			}
 			
-			caso 2:{
+			caso '2':{
 				manutencao()
 				pare
 			}
 			
-			caso 3:{
+			caso '3':{
 				filaAtendimento()
 				pare
 			}
 			
-			caso 4:{
+			caso '4':{
 				consultaAtendimento()
 				pare
 			}
 			
-			caso 5:{
+			caso '5':{
 				buscaEquipamento()
 				pare
 			}
 			
-			caso 6:{
+			caso '6':{
 				statusFila()
 				pare
 			}
 			
-			caso 7:{
+			caso '7':{
 				equipamentosConsertados()
 				pare
 			}
 			
-			caso 8:{
+			caso '8':{
 				buscaEquipamentosConsertados()
 				pare
 			}
 			
-			caso 9:{
+			caso '9':{
 				sair()
 				pare
 			}
@@ -201,7 +202,7 @@ programa
 
 		para(inteiro i = 0; i < total; i++){
 			se(equipamento[i] == equipamentoT){
-				escreva("\nPosição na fila: ", i, "\n")
+				escreva("\nPosição na fila: ", i+1, "\n")
 				escreva("Data de entrada: ", dataEntrada[i], "\n")
 				escreva("Nome do proprietário: ", nome[i], "\n")
 				escreva("Equipamento: ", equipamento[i], "\n")
@@ -316,7 +317,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1378; 
+ * @POSICAO-CURSOR = 4018; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {dataEntrada, 7, 8, 11}-{equipamento, 7, 41, 11};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
